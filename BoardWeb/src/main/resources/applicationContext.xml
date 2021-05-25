@@ -39,14 +39,59 @@
 <!-- 	</bean> -->
 <!-- 	<bean id="userDAO" class="com.springbook.biz.user.impl.UserDAO"/> -->
 	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
-	<bean id="log" class="com.springbook.biz.common.Log4jAdvice"></bean>
+	
+	<bean id="log"            class="com.springbook.biz.common.Log4jAdvice"></bean>
+	<bean id="before"         class="com.springbook.biz.common.BeforeAdvice"/>
+	<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"/>
+	<bean id="afterThrowing"  class="com.springbook.biz.common.AfterThrowingAdvice"/>
+	<bean id="after"          class="com.springbook.biz.common.AfterAdvice"/>
+	<bean id="around"         class="com.springbook.biz.common.AroundAdvice"/>
+	
 	<aop:config>
 		<aop:pointcut id="allPointCut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 		<aop:pointcut id="getPointCut" expression="execution(* com.springbook.biz..*Impl.get*(..))"/>
-		<aop:aspect ref="log">
+<!-- 		<aop:aspect ref="log"> -->
 <!-- 			<aop:before pointcut-ref="allPointCut" method="printLogging"/> -->
 <!-- 			<aop:before pointcut-ref="getPointCut" method="printLogging"/> -->
-			<aop:after pointcut-ref="getPointCut" method="printLogging"/>
+<!-- 			<aop:after pointcut-ref="getPointCut" method="printLogging"/> -->
+<!-- 		</aop:aspect> -->
+<!-- 		<aop:aspect ref="before"> -->
+<!-- 			<aop:before pointcut-ref="allPointCut" method="beforeLog"/> -->
+<!-- 		</aop:aspect> -->
+<!-- 		<aop:aspect ref="afterReturning"> -->
+<!-- 			<aop:after-returning pointcut-ref="getPointCut" method="afterLog" returning="returnObj"/> -->
+<!-- 		</aop:aspect> -->
+<!-- 		<aop:aspect ref="afterThrowing"> -->
+<!-- 			<aop:after-throwing pointcut-ref="allPointCut" method="exceptionLog" throwing="exceptObj"/> -->
+<!-- 		</aop:aspect> -->
+<!-- 		<aop:aspect ref="after"> -->
+<!-- 			<aop:after pointcut-ref="allPointCut" method="finallyLog"/> -->
+<!-- 		</aop:aspect> -->
+		<aop:aspect ref="around">
+			<aop:around pointcut-ref="allPointCut" method="aroundLog"/>
 		</aop:aspect>
 	</aop:config>
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
