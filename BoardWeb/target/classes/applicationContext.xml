@@ -7,6 +7,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+		
+	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
+	
+<!-- IOC -->
 <!-- 	<bean id="collectionBean" class="com.springbook.ioc.injection.CollectionBean"> -->
 <!-- 		<property name="addressList"> -->
 <!-- 			<set value-type="java.lang.String"> -->
@@ -38,18 +42,18 @@
 <!-- 		<property name="userDAO" ref="userDAO"></property> -->
 <!-- 	</bean> -->
 <!-- 	<bean id="userDAO" class="com.springbook.biz.user.impl.UserDAO"/> -->
-	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
+
+<!-- AOP -->
+<!-- 	<bean id="log"            class="com.springbook.biz.common.Log4jAdvice"></bean> -->
+<!-- 	<bean id="before"         class="com.springbook.biz.common.BeforeAdvice"/> -->
+<!-- 	<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"/> -->
+<!-- 	<bean id="afterThrowing"  class="com.springbook.biz.common.AfterThrowingAdvice"/> -->
+<!-- 	<bean id="after"          class="com.springbook.biz.common.AfterAdvice"/> -->
+<!-- 	<bean id="around"         class="com.springbook.biz.common.AroundAdvice"/> -->
 	
-	<bean id="log"            class="com.springbook.biz.common.Log4jAdvice"></bean>
-	<bean id="before"         class="com.springbook.biz.common.BeforeAdvice"/>
-	<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"/>
-	<bean id="afterThrowing"  class="com.springbook.biz.common.AfterThrowingAdvice"/>
-	<bean id="after"          class="com.springbook.biz.common.AfterAdvice"/>
-	<bean id="around"         class="com.springbook.biz.common.AroundAdvice"/>
-	
-	<aop:config>
-		<aop:pointcut id="allPointCut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
-		<aop:pointcut id="getPointCut" expression="execution(* com.springbook.biz..*Impl.get*(..))"/>
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut id="allPointCut" expression="execution(* com.springbook.biz..*Impl.*(..))"/> -->
+<!-- 		<aop:pointcut id="getPointCut" expression="execution(* com.springbook.biz..*Impl.get*(..))"/> -->
 <!-- 		<aop:aspect ref="log"> -->
 <!-- 			<aop:before pointcut-ref="allPointCut" method="printLogging"/> -->
 <!-- 			<aop:before pointcut-ref="getPointCut" method="printLogging"/> -->
@@ -67,10 +71,11 @@
 <!-- 		<aop:aspect ref="after"> -->
 <!-- 			<aop:after pointcut-ref="allPointCut" method="finallyLog"/> -->
 <!-- 		</aop:aspect> -->
-		<aop:aspect ref="around">
-			<aop:around pointcut-ref="allPointCut" method="aroundLog"/>
-		</aop:aspect>
-	</aop:config>
+<!-- 		<aop:aspect ref="around"> -->
+<!-- 			<aop:around pointcut-ref="allPointCut" method="aroundLog"/> -->
+<!-- 		</aop:aspect> -->
+<!-- 	</aop:config> -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
 
 
