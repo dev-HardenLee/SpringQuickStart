@@ -17,12 +17,10 @@ public class LogAdvice {
 //		System.out.println("[공통 로그] 비즈니스 로직 수행 전 동작");
 //	}
 	
-	@Before("allPointCut()")
+	@Before("PointcutCommon.allPointCut()")
 	public void printLog() {
 		System.out.println("[공통 로그] 비즈니스 로직 수행 전 동작");
 	}
 	
-	@Pointcut("execution(* com.springbook.biz..*impl.*(..))")
-	public void allPointCut() {}
 	
 }
