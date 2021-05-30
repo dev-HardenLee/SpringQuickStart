@@ -23,13 +23,13 @@ public class BoardServiceClient {
 		vo.setTitle("임시제목");
 		vo.setWriter("홍길동");
 		vo.setContent("임시내용....!");
-		boardService.insertBoard(vo);
+		//boardService.insertBoard(vo);
 		
 		// 4. 글 목록 검색 기능 테스트
 		List<BoardVO> boardList = boardService.getBoardList(vo);
 		for (BoardVO boardVO : boardList) {
 			System.out.println("### " + boardVO.toString());
-		}
+		}// for
 		
 		// 5. Spring 컨테이너 종료
 		container.close();
