@@ -41,8 +41,8 @@
 <!-- 	<bean id="logout" class="com.springbook.view.board.LogoutController"/> -->
 	<context:component-scan base-package="com.springbook.view"></context:component-scan>
 	
-	<!-- 어노테이션 기반 예외처리  -->
-<!-- 	<mvc:annotation-driven></mvc:annotation-driven> -->
+	<!-- 어노테이션 기반 예외처리, HttpMessageConverter 구현  -->
+	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
