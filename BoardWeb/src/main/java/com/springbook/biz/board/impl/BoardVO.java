@@ -2,25 +2,40 @@ package com.springbook.biz.board.impl;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //@XmlAccessorType(XmlAccessType.FIELD)
+@Entity
+@Table(name="BOARD")
 public class BoardVO {
 	//@XmlAttribute
+	@Id
+	@GeneratedValue
 	private int seq;
 	private String title;
 	private String writer;
 	private String content;
+	@Temporal(TemporalType.DATE)
 	private Date regDate;
 	private int cnt;
 	//@XmlTransient
+	@Transient
 	private String searchCondition;
 	//@XmlTransient
+	@Transient
 	private String searchKeyword;
 	//@XmlTransient
+	@Transient
 	private MultipartFile uploadFile;
 	
 	public int getSeq() {
@@ -41,15 +56,15 @@ public class BoardVO {
 	public int getCnt() {
 		return cnt;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getSearchCondition() {
 		return searchCondition;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}

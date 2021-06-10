@@ -20,7 +20,7 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-	
+		<!-- Repository Frame Work Start -->
 		<!-- H2 DataBase -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -41,7 +41,33 @@
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>1.3.3</version>
 		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.1.5.Final</version>
+		</dependency>
 
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+		
+		<dependency>
+			 <groupId>org.antlr</groupId>
+			 <artifactId>antlr-complete</artifactId>
+			 <version>3.5.2</version>
+		</dependency> 
+		
+		<!-- ORM -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		<!-- Repository Frame Work End -->
 
 		
 		<!-- Jackson2 -->
