@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.common.JDBCUtil;
 
+// DAO
 @Repository("boardDAO")
 public class BoardDAO {
 	
